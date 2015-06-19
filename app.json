@@ -1,0 +1,32 @@
+{
+  "name" : "SlackRato /librato 4 Slack",
+  "description": "Get values from librato for slack",
+  "keywords": [
+    "productivity",
+    "slack",
+    "librato"
+  ],
+  "website": "https://github.com/wooga/slackrato/blob/master/README.md",
+  "repository": "https://github.com/wooga/slackrato",
+  "logo": "http://cdn-mkt.wooga.com/logo/wooga-logo-w.png",
+  "env": {
+    "SLACK_TOKENS": {
+      "description": "Comma separated list of slack command tokens.",
+      "value": "placeholder"
+    },
+    "SLACK_INCOMING_URL": {
+      "description": "URL to use to post messages into channels.",
+      "required": false
+    },
+    "LIBRATO_USERNAME": {
+      "description": "Librato user name."
+    },
+    "LIBRATO_PASSWORD": {
+      "description": "Librato password."
+    },
+    "RACK_ENV": {
+      "description": "Rack environment",
+      "value": "production"
+    }
+  }
+}

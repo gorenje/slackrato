@@ -23,7 +23,7 @@ post '/slack/commands' do
       end.join("\n")
 
       msg = "Co2 & Temp. at "+
-        "#{DateTime.now.gsub(/T/,' ').gsub(/[+].+$/,'')}:\n" + str + "\n"
+        "#{DateTime.now.to_s.gsub(/T/,' ').gsub(/[+].+$/,'')}:\n" + str + "\n"
 
       if !ENV['SLACK_INCOMING_URL'].blank? && params[:text] == "post"
         options = {

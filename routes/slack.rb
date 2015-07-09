@@ -22,7 +22,8 @@ post '/slack/commands' do
           "Temp: <#{grurl}|#{tempv}>°C"
       end.join("\n")
 
-      msg = "Current Co2 & Temperature @ #{DateTime.now}:\n" + str + "\n"
+      msg = "Co2 & Temp. at "+
+        "#{DateTime.now.gsub(/T/,' ').gsub(/[+].+$/,'')}:\n" + str + "\n"
 
       if !ENV['SLACK_INCOMING_URL'].blank? && params[:text] == "post"
         options = {

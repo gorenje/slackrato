@@ -28,7 +28,7 @@ post '/slack/commands' do
 
       if !ENV['SLACK_INCOMING_URL'].blank? && params[:text] == "post"
         options = {
-          :icon_emoji => ':libratotello:',
+          :icon_emoji => ':slackrato:',
           :username   => 'SlackRato',
           :channel    => "##{chnl}",
         }

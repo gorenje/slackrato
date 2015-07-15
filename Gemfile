@@ -8,7 +8,10 @@ gem 'slack-poster'
 gem 'librato-metrics'
 gem 'activesupport'
 
+gem 'pry' # include here since good for "heroku run rake shell"
+gem 'rake'
+
 group :development do
-  gem 'pry'
-  gem 'rake'
+  gem 'foreman'
+  gem 'dotenv'
 end

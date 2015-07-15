@@ -28,5 +28,8 @@
       "description": "Rack environment",
       "value": "production"
     }
-  }
+  },
+  "addons": [
+    "papertrail"
+  ]
 }

@@ -4,6 +4,7 @@ ruby '2.1.3'
 
 gem 'puma'
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'slack-poster'
 gem 'librato-metrics'
 gem 'activesupport'

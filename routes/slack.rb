@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 UnavailableValue = [{"value" => Float::INFINITY}]
 
-get '/slack/commands' do
+route :get, :post, '/slack/commands' do
   case params[:command]
   when "/co2"
     username     = params[:user_name]

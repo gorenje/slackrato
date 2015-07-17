@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
+require "sinatra/multi_route"
 require 'json'
 
 require 'slack-poster'

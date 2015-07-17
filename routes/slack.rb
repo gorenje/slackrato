@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-post '/slack/commands' do
+UnavailableValue = [{"value" => Float::INFINITY}]
+
+get '/slack/commands' do
   case params[:command]
   when "/co2"
     username     = params[:user_name]
@@ -12,10 +14,12 @@ post '/slack/commands' do
       str = ENV['CO2_METRIC_NAMES'].split(/,/).map { |str| str.split(/:/)}.
         map do |libprefix,name|
 
-        co2v = Librato::Metrics.
-          fetch(libprefix+".co2", :count => 1)['unassigned'].first["value"]
-        tempv = Librato::Metrics.
-          fetch(libprefix+".tmp", :count => 1)['unassigned'].first["value"]
+        co2v = (Librato::Metrics.
+                fetch(libprefix+".co2", :count => 1)['unassigned'] ||
+                UnavailableValue).first["value"]
+        tempv = (Librato::Metrics.
+                 fetch(libprefix+".tmp", :count => 1)['unassigned'] ||
+                   UnavailableValue).first["value"]
 
         co2v, tempv = "%.1f" % co2v, "%2.1f" % tempv
 
@@ -41,7 +45,7 @@ post '/slack/commands' do
         poster.send_message(msg)
       end
     rescue Exception => e
-      "Error: #{e.message}"
+      return "Error: #{e.message}"
     end
 
     post_to_chat ? "Posted to chat" : msg
